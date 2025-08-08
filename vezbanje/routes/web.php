@@ -13,5 +13,5 @@ Route::get('/', function () {
 Route::get('/dodaj-ocenu', function () {
     return view('dodajocenu');
 });
-
+//dodaj ocenu
 Route::post("/dodajocenuform", [OcenaController::class, 'dodajOcenu']);
