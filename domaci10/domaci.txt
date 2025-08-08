@@ -1,0 +1,10 @@
+Domaci za middlewar-e
+ - prethodni projekat:
+	- SVE NA GIT!
+	- /prognoza
+	  - Prikazuje: Beograd, Ns, Sarajevo, Zagreb..
+	  - Prikaz demo temperatura
+	- Mora se biti ulogovan da bi se vidjele te stranice (AUTH)
+
+ 	- BONUS
+	  - Admin: Dodavanje gradova, temperatura...
