@@ -1,0 +1,53 @@
+- Upisivanje projekata u bazu bez da koristimo CRUD
+
+** SEEDERi **
+	- Sluze da bi popunili podatke u bazi
+	- Fake pravljenje podataka u bazi koristimo preko seeder-a (demo podaci)
+	- Ne treba ih previse koristiti, izbegavaju ih programeri
+- Kako se prave seeder-i?
+	php artisan make:seeder imeSeedera
+
+- php artisan db:seed => sluzi da pokrene apsolutno sve seeder-e koje imamo
+- php artisan db:seed --class=ImeSeedera  ==> Pokrecemo iskljucivo samo jedan seeder
+
+
+* Vezba:
+	-Napraviti novi seeder koji ce upisati 3 korisnika u tabelu users
+	-Kada koristimo password, napraviti da upisuje pw hash algoritam
+
+
+----------------------------------------------------------------------------
+
+* FAKERI
+	-uloga fejker-a je da generisu lazne podatke (koji budu poprilicno realisticni)
+
+- Vezba: napravite 500 korisnika za users tabelu 
+
+--> Za fakere koristiti sl. dokumentaciju: https://fakerphp.org/
+
+
+*Faker progress bar 
+	=> $this->command->getOutput()->progressStart(KOLIKO PONAVLJANJA CE IMAT);
+	   $this->command->getOutput()->progressAdvance(); => brojac ++ bukv
+	   $this->command->getOutput()->progressFinish(); => KRAJ PROGRESA
+
+	- Za ispis errora u commandu
+	  $this->command->getOutput()->error('error porukaa');
+
+
+* Command ask
+	$this->command->getOutput()-ask(pitanje, default);
+
+----------------------------------------------------------------------------------------
+
+Vezba: postaviti pitanje za unos sifre (koja sifra treba biti)
+
+----------------------------------------------------------------------------------------
+
+Vezba:
+	-novi seeder
+		-userWeatherSeeder
+		-pitajte korisnika za grad
+		-pitajte korisnika za temp
+		-upisite u bazu
+	-ako korisnik ne unese grad ili temp ispisi gresku
