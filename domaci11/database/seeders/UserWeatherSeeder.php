@@ -27,8 +27,15 @@ class UserWeatherSeeder extends Seeder
 
         for($i=0;$i<$numOfCity;$i++)
         {
+            $city = $faker->city();
+//            dd($city);
+            if(WeatherModel::where('city',$city)->exists()) {
+                $this->command->getOutput()->error("Grad {$city} postoji");
+                continue;
+            }
+
             WeatherModel::create([
-                'city'=>$faker->unique()->city(),
+                'city'=>$city,
                 'temperature'=>$faker->biasedNumberBetween('10','35')
             ]);
 
