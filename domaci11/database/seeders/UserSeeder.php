@@ -33,18 +33,25 @@ class UserSeeder extends Seeder
         //dodavanje fakera
         $faker = Factory::create();
 
-
+//        dd($email);
         $amount = (int)$this->command->getOutput()->ask('Koliko korisnika zelite da napravite?', 50);
         $password = $this->command->getOutput()->ask('Unesite lozinku', '1234567890');
+
         //Pravljenje progress bara
         $this->command->getOutput()->progressStart($amount);
 
         //Dodavanje 50 korisnika
         for($i=0; $i<$amount; $i++)
         {
+            $email = $faker->unique()->email();
+            if(User::where('email', $email)->exists()) {
+                $this->command->getOutput()->error('GRESKA email postoji');
+                continue;
+            }
+
             User::create([
                 'name'=>$faker->name(),
-                'email'=>$faker->unique()->email(),
+                'email'=>$email,
                 'password'=>Hash::make($password)
             ]);
 
