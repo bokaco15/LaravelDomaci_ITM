@@ -8,3 +8,5 @@ Domaci za middlewar-e
 
  	- BONUS
 	  - Admin: Dodavanje gradova, temperatura...
+
+-- TEST TEST
