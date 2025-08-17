@@ -24,6 +24,7 @@ class ForecastSeeder extends Seeder
 //        dd($date);
 
         $this->command->getOutput()->progressStart(count($cities) * 5);
+        $counter = 0;
 
         foreach ($cities as $city)
         {
@@ -40,7 +41,7 @@ class ForecastSeeder extends Seeder
                        'temperature' => $faker->randomFloat(1, 0, 45),
                         'date'=>$date
                     ]);
-
+                    $counter++;
                     $this->command->getOutput()->progressAdvance();
                 }
                 else
@@ -51,7 +52,7 @@ class ForecastSeeder extends Seeder
         }
 
         $this->command->getOutput()->progressFinish();
-        $this->command->getOutput()->success("Uspesno ste dodali temperature!!!");
+        $this->command->getOutput()->success("Uspesno ste dodali {$counter} temperatura!!!");
 
     }
 }
