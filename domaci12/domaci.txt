@@ -1,12 +1,37 @@
-1. UserSeeder
-2. UserWeatherSeeder
+Napraviti tabelu Cities
+    * name (UNIQUE POLJE)
+    * SEEDER koji upisuje 100 gradova - faker
+-----------
+Napraviti tabelu forecasts
+    * city_id, temperature, date
+      * Povezati tabele forecasts i cities
+        * Forecasts: city_id -> Cities: id
+    ** Napraviti seeder za forecasts:
+        * Izvuci sve cities iz baze, generisati 5 temperatura za svaki grad
+-----------
+Prepraviti tabelu "Weather" tako da:
+    * Nema vise polje "city", vec ima polje "city_id", a taj ID je ustvari "id" iz tabele Cities
+    * Prepraviti seeder za Weather
+-----------
 
--> Da li korisnik postoji (email)
--> Da li taj grad postoji (city)
+City tabela:
+    id, name
+    ---------
+    1   Beograd
 
-* BONUS
-    - napraviti komandu za kreiranje korisnika (seeder)
-        -unesi email question
-        -username
-        -password
-        (QUESTIONS)
+-------------------------------------
+
+Forecasts tabela:
+    city_id, temperature, date
+    --------------------------
+    1          22.3       03.05.2025.
+    1          25         04.05.2025.
+    1          17         05.05.2025
+
+---------------------------------------
+
+Weather tabela:
+    city_id  temperature
+    --------------------
+    1           22
+    2           34
