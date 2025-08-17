@@ -1,0 +1,12 @@
+1. UserSeeder
+2. UserWeatherSeeder
+
+-> Da li korisnik postoji (email)
+-> Da li taj grad postoji (city)
+
+* BONUS
+    - napraviti komandu za kreiranje korisnika (seeder)
+        -unesi email question
+        -username
+        -password
+        (QUESTIONS)
