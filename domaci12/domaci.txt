@@ -1,3 +1,6 @@
+
+
+
 Napraviti tabelu Cities
     * name (UNIQUE POLJE)
     * SEEDER koji upisuje 100 gradova - faker
