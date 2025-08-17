@@ -2,7 +2,9 @@
 
 namespace Database\Seeders;
 
+use App\Models\Cities;
 use App\Models\WeatherModel;
+use Faker\Factory;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -38,7 +40,22 @@ class WeatherSeeder extends Seeder
 
         //UPDATE WEATHER SEEDERA
 
+        $faker = Factory::create();
+        $cities = Cities::all();
+        $counter = 0;
+        foreach ($cities as $city)
+        {
+            $cityWM = WeatherModel::where(['city_id'=>$city->id])->first();
+            if(!$cityWM) {
+                WeatherModel::create([
+                    'city_id'=>$city->id,
+                    'temperature'=>$faker->randomFloat(1, 10,40)
+                ]);
+                $counter++;
+            }
+        }
 
+        $this->command->getOutput()->success("Uspijesno ste dodali {$counter} temperatura");
 
     }
 }
