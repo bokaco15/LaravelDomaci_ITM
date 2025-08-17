@@ -13,6 +13,7 @@ class WeatherSeeder extends Seeder
      */
     public function run(): void
     {
+        /*
         $prognoza = [
             'Beograd'    => 33,
             'Zagreb'     => 29,
@@ -33,6 +34,11 @@ class WeatherSeeder extends Seeder
                 'temperature'=>$temp
             ]);
         }
+        */
+
+        //UPDATE WEATHER SEEDERA
+
+
 
     }
 }
