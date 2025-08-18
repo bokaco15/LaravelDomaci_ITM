@@ -1,0 +1,70 @@
+Realan scenario: Studentski sistem (Univerzitet)
+1. Tabela Students
+
+Polja:
+
+id
+
+name (ime i prezime)
+
+email (UNIQUE)
+
+enrollment_date (datum upisa)
+
+👉 Seeder: ubaciti 50 studenata sa Faker imenom, mejlom i datumom.
+
+------------------------------------------------------------------------------------
+
+2. Tabela Courses
+
+Polja:
+
+id
+
+name (UNIQUE)
+
+credits (broj ESPB poena)
+
+👉 Seeder: ubaciti 10 kurseva (faker ili fiksno npr. “Matematika 1”, “Programiranje 1”, …).
+
+------------------------------------------------------------------------------------
+
+3. Tabela Enrollments
+
+(Ovde povezujemo studente i kurseve → relacija N:N)
+
+Polja:
+
+id
+
+student_id (FK → Students: id)
+
+course_id (FK → Courses: id)
+
+grade (ocena 5–10)
+
+👉 Seeder: za svakog studenta random 3–5 kurseva, i za svaki upis generiši ocenu.
+
+------------------------------------------------------------------------------------
+
+
+👀 Kako bi izgledalo u bazi:
+
+Students:
+
+id	name	            email	        enrollment_date
+1	Petar Petrović	petar@example.com	2022-09-10
+2	Ana Jovanović	ana.jov@example.com	2023-02-12
+
+Courses:
+
+id	name	        credits
+1	Programiranje 1	   8
+2	Matematika 1	   6
+
+Enrollments:
+
+id	student_id	course_id	grade
+1	    1	        1	      9
+2	    1	        2	      7
+3	    2	        1	      10

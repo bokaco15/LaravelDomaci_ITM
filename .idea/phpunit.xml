@@ -5,16 +5,16 @@
       <list>
         <option value="$PROJECT_DIR$/domaci6vjezbanje/tests/Unit" />
         <option value="$PROJECT_DIR$/domaci6vjezbanje/tests/Feature" />
-        <option value="$PROJECT_DIR$/domaci7/tests/Unit" />
-        <option value="$PROJECT_DIR$/domaci7/tests/Feature" />
-        <option value="$PROJECT_DIR$/domaci2/tests/Unit" />
-        <option value="$PROJECT_DIR$/domaci2/tests/Feature" />
-        <option value="$PROJECT_DIR$/vjezba1/laravel/tests/Unit" />
-        <option value="$PROJECT_DIR$/vjezba1/laravel/tests/Feature" />
         <option value="$PROJECT_DIR$/vezbanje/tests/Unit" />
         <option value="$PROJECT_DIR$/vezbanje/tests/Feature" />
+        <option value="$PROJECT_DIR$/domaci2/tests/Unit" />
+        <option value="$PROJECT_DIR$/domaci2/tests/Feature" />
+        <option value="$PROJECT_DIR$/domaci7/tests/Unit" />
+        <option value="$PROJECT_DIR$/domaci7/tests/Feature" />
         <option value="$PROJECT_DIR$/domaci1/tests/Unit" />
         <option value="$PROJECT_DIR$/domaci1/tests/Feature" />
+        <option value="$PROJECT_DIR$/vjezba1/laravel/tests/Unit" />
+        <option value="$PROJECT_DIR$/vjezba1/laravel/tests/Feature" />
       </list>
     </option>
   </component>
