@@ -1,0 +1,52 @@
+📝 Zadatak za vežbu
+1. Napraviti tabelu Authors
+
+Polja:
+
+id
+
+name (UNIQUE)
+
+Seeder:
+
+Ubaciti 50 autora koristeći Faker.
+--------------------------------------------------------
+2. Napraviti tabelu Books
+
+Polja:
+
+id
+
+title (UNIQUE)
+
+author_id (foreign key → Authors: id)
+
+published_at (datum objavljivanja)
+
+Seeder:
+
+Izvuci sve autore iz baze.
+
+Za svakog autora generiši po 3 knjige (nasumične naslove + random datum objavljivanja).
+
+---------------------------------------------------------------------------------------------
+
+3. Napraviti tabelu Reviews
+
+Polja:
+
+id
+
+book_id (foreign key → Books: id)
+
+rating (1–5)
+
+comment (faker → random rečenica)
+
+Seeder:
+
+Izvuci sve knjige iz baze.
+
+Svaka knjiga treba da dobije bar 2 recenzije.
+
+---------------------------------------------------------------------------------------------------
