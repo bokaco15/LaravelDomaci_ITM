@@ -12,12 +12,14 @@ return new class extends Migration
     public function up(): void
     {
         //student_id, course_id, grade
-        Schema::create('entrollments', function (Blueprint $table) {
+        Schema::create('enrollments', function (Blueprint $table) {
             $table->id();
             $table->foreignId('student_id')->references('id')->on('students')->cascadeOnUpdate()->cascadeOnDelete();
             $table->foreignId('course_id')->references('id')->on('courses')->cascadeOnDelete()->cascadeOnUpdate();
             $table->integer('grade');
             $table->timestamps();
+
+            $table->unique(['student_id', 'course_id']);
         });
     }
 
