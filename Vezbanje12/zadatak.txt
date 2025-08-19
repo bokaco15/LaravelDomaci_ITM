@@ -13,6 +13,8 @@ enrollment_date (datum upisa)
 
 👉 Seeder: ubaciti 50 studenata sa Faker imenom, mejlom i datumom.
 
+[DONE]
+
 ------------------------------------------------------------------------------------
 
 2. Tabela Courses
@@ -26,6 +28,8 @@ name (UNIQUE)
 credits (broj ESPB poena)
 
 👉 Seeder: ubaciti 10 kurseva (faker ili fiksno npr. “Matematika 1”, “Programiranje 1”, …).
+
+[DONE]
 
 ------------------------------------------------------------------------------------
 
