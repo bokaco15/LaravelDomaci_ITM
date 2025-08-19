@@ -11,8 +11,18 @@ return new class extends Migration
      */
     public function up(): void
     {
+        /*
+         *  id
+            title (UNIQUE)
+            author_id (foreign key → Authors: id)
+            published_at (datum objavljivanja)
+        */
         Schema::create('books', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('author_id')->references('id')->on('authors')->cascadeOnUpdate()->cascadeOnDelete();
+            $table->string('author_name');
+            $table->string('title')->unique();
+            $table->date('published_at');
             $table->timestamps();
         });
     }
