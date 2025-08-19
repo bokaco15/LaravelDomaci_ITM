@@ -10,6 +10,9 @@ name (UNIQUE)
 Seeder:
 
 Ubaciti 50 autora koristeći Faker.
+
+[DONE]
+
 --------------------------------------------------------
 2. Napraviti tabelu Books
 
