@@ -49,6 +49,8 @@ grade (ocena 5–10)
 
 👉 Seeder: za svakog studenta random 3–5 kurseva, i za svaki upis generiši ocenu.
 
+[DONE]
+
 ------------------------------------------------------------------------------------
 
 
