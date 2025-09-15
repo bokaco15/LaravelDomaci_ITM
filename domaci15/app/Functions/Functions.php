@@ -21,7 +21,7 @@
             'sunny'=>'fa-solid fa-sun text-warning',
             'rainy'=>'fa-solid fa-cloud-rain text-primary',
             'snowy'=>'fa-solid fa-snowflake text-info',
-            'cloudy'=>'fa-cloud-sun'
+            'cloudy'=>'fa-solid fa-cloud-sun-rain text-info'
         ];
         public static function whatIsWeatherType($weather_type)
         {

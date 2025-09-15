@@ -33,15 +33,36 @@ class ForecastSeeder extends Seeder
             for($i=0; $i<5; $i++)
             {
                 $date = date('Y-m-d', strtotime("+$i days"));
+                $weather_type = Forecast::WEATHERS[rand(0,3)];
                 $forecast = Forecast::where(['city_id'=>$city->id, 'date'=>$date])->first();
 
                 if(!$forecast)
                 {
+
+                    $temperature = null;
+
+                    switch ($weather_type)
+                    {
+                        case "sunny":
+                            $temperature = rand(-50,50);
+                            break;
+                        case "cloudy":
+                            $temperature = rand(-50, 15);
+                            break;
+                        case "rainy":
+                            $temperature = rand(-10,50);
+                            break;
+                        case "snowy":
+                            $temperature = rand(-50,1);
+                            break;
+                    }
+
+
                     Forecast::create([
                        'city_id' => $city->id,
-                       'temperature' => $faker->randomFloat(1, 0, 45),
+                       'temperature' => $temperature,
                         'date'=>$date,
-                        'weather_type' => Arr::random(['sunny', 'rainy', 'snowy', 'cloudy']),
+                        'weather_type' => $weather_type,
                         'probabbility' => mt_rand(0, 100)
                     ]);
                     $counter++;
