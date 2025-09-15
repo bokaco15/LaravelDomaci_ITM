@@ -41,7 +41,7 @@ class ForecastSeeder extends Seeder
                        'city_id' => $city->id,
                        'temperature' => $faker->randomFloat(1, 0, 45),
                         'date'=>$date,
-                        'weather_type' => Arr::random(['sunny', 'rainy', 'snowy']),
+                        'weather_type' => Arr::random(['sunny', 'rainy', 'snowy', 'cloudy']),
                         'probabbility' => mt_rand(0, 100)
                     ]);
                     $counter++;
