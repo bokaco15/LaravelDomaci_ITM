@@ -30,6 +30,8 @@ class ForecastSeeder extends Seeder
         foreach ($cities as $city)
         {
 
+            $lastTemp = null;
+
             for($i=0; $i<5; $i++)
             {
                 $date = date('Y-m-d', strtotime("+$i days"));
@@ -39,22 +41,38 @@ class ForecastSeeder extends Seeder
                 if(!$forecast)
                 {
 
+                    $probability = null;
+                    if($weather_type == 'snowy' || $weather_type == 'rainy' || $weather_type == 'cloudy') {
+                        $probability = rand(1,100);
+                    }
+
                     $temperature = null;
 
-                    switch ($weather_type)
+                    if($lastTemp!=null)
                     {
-                        case "sunny":
-                            $temperature = rand(-50,50);
-                            break;
-                        case "cloudy":
-                            $temperature = rand(-50, 15);
-                            break;
-                        case "rainy":
-                            $temperature = rand(-10,50);
-                            break;
-                        case "snowy":
-                            $temperature = rand(-50,1);
-                            break;
+                        $minTemp = $lastTemp - 5;
+                        $maxTemp = $lastTemp + 5;
+
+                        $temperature = rand($minTemp, $maxTemp);
+                    }
+                    else
+                    {
+
+                        switch ($weather_type)
+                        {
+                            case "sunny":
+                                $temperature = rand(-50,50);
+                                break;
+                            case "cloudy":
+                                $temperature = rand(-50, 15);
+                                break;
+                            case "rainy":
+                                $temperature = rand(-10,50);
+                                break;
+                            case "snowy":
+                                $temperature = rand(-50,1);
+                                break;
+                        }
                     }
 
 
@@ -63,8 +81,11 @@ class ForecastSeeder extends Seeder
                        'temperature' => $temperature,
                         'date'=>$date,
                         'weather_type' => $weather_type,
-                        'probabbility' => mt_rand(0, 100)
+                        'probabbility' => $probability
                     ]);
+
+                    $lastTemp = $temperature;
+
                     $counter++;
                     $this->command->getOutput()->progressAdvance();
                 }
