@@ -1,0 +1,15 @@
+Domaci 15:
+    Dodati jos 1 tip vremena: Cloudy
+        - dodati u seeder
+        - dodati ikonicu
+        - da li jos negde treba?
+    Unutar forecast seeder prepraviti logiku:
+        Ako je weather_type:
+            sunny->temp bilo koja
+            cloudy->temp do 15s
+            rainy->bilo koja temp do -30
+            snow->temp ce biti 1 ili manje od 1
+
+    BONUS:
+        - Temperature ne smiju da variraju vise od 5 stepeni gore/dole
+            - Ako je prva temp bila (PRIMER) 15 stepeni za odradjeni Beogarad, sledeca ne smije biti veca ili manja od 5 (10-20)
