@@ -32,7 +32,8 @@
         <hr>
 
         @foreach($cities as $k=>$city)
-            <p>{{($k+1) . ": " . $city->name}}</p>
+{{--            @dd($cities->items())--}}
+            <p>{{($cities->firstItem()) + $k . ": " . $city->name}}</p>
             <ul>
             @foreach($city->forecasts as $forecast)
                     <li>
@@ -48,6 +49,7 @@
                 @endforeach
             </ul>
         @endforeach
+        {{$cities->links()}}
 
     </div>
 @endsection

@@ -25,8 +25,11 @@
         ];
         public static function whatIsWeatherType($weather_type)
         {
-            $icon = self::WEATHER_ICONS[$weather_type];
-            return $icon;
+            if(in_array($weather_type, self::WEATHER_ICONS)){
+                return self::WEATHER_ICONS[$weather_type];
+            } else {
+                return 'fa-solid fa-sun text-warning';
+            }
         }
     }
 
