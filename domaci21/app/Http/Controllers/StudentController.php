@@ -2,11 +2,20 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\AddStudentRequest;
 use App\Models\Student;
+use App\Repositories\StudentRepository;
 use Illuminate\Http\Request;
 
 class StudentController extends Controller
 {
+    private $studentRepo;
+
+    public function __construct()
+    {
+        $this->studentRepo = new StudentRepository();
+    }
+
     public function show()
     {
         $students = Student::all();
@@ -20,20 +29,10 @@ class StudentController extends Controller
     }
 
 
-    public function insert(Request $request)
+    public function insert(AddStudentRequest $request)
     {
-//        dd($request->all());
-        $validated=$request->validate([
-            'name'=>'required|string|max:64',
-            'surname'=>'required|string|max:64',
-            'noIndex'=>'required|string|max:32',
-            'year'=>'integer|digits:4'
-        ]);
-
-        Student::create($validated);
-
+        $this->studentRepo->addStudent($request);
         return redirect()->route('addStudent')->with('success', 'Uspesno ste dodali studenta');
-
     }
 
     public function edit(Student $student)
@@ -43,17 +42,8 @@ class StudentController extends Controller
 
     public function update(Request $request, Student $student)
     {
-//        dump($student);
-//        dump($request->all());
-        $student->name = $request->get('name');
-        $student->surname = $request->get('surname');
-        $student->noIndex = $request->get('noIndex');
-        $student->year = $request->get('year');
-
-        $student->save();
-
+        $this->studentRepo->updateStudent($request, $student);
         return redirect()->route('showStudents')->with('success', "Upesno ste promenili podatke studenta {$student->name} {$student->surname}");
-
     }
 
 }
