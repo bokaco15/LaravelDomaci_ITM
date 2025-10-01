@@ -3,10 +3,18 @@
 namespace App\Http\Controllers;
 
 use App\Models\Contact;
+use App\Repositories\ContactRepository;
 use Illuminate\Http\Request;
 
 class ContactController extends Controller
 {
+    private $contactRepo;
+
+    public function __construct()
+    {
+        $this->contactRepo = new ContactRepository();
+//        $this->contactRepo->test();
+    }
     public function addContact(Request $request)
     {
         $validation=$request->validate([
