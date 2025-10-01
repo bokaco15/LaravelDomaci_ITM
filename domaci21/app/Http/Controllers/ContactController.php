@@ -31,8 +31,7 @@ class ContactController extends Controller
 
     public function deleteContact($id)
     {
-        $contact = Contact::where(['id'=>$id])->first();
-//      dd($contact);
+        $contact = $this->contactRepo->getContactById($id);
         if($contact != null)
         {
             $contact->delete();
