@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Sep 17, 2025 at 07:24 AM
+-- Generation Time: Oct 01, 2025 at 07:45 AM
 -- Server version: 9.1.0
 -- PHP Version: 8.3.14
 
@@ -20,6 +20,8 @@ SET time_zone = "+00:00";
 --
 -- Database: `predavanje6_vezba`
 --
+CREATE DATABASE IF NOT EXISTS `predavanje6_vezba` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+USE `predavanje6_vezba`;
 
 -- --------------------------------------------------------
 
@@ -73,7 +75,7 @@ CREATE TABLE IF NOT EXISTS `cities` (
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `cities_name_unique` (`name`)
-) ENGINE=InnoDB AUTO_INCREMENT=51 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=87 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `cities`
@@ -129,7 +131,32 @@ INSERT INTO `cities` (`id`, `name`, `created_at`, `updated_at`) VALUES
 (47, 'Urielport', '2025-08-26 04:16:40', '2025-08-26 04:16:40'),
 (48, 'Port Jedport', '2025-08-26 04:16:40', '2025-08-26 04:16:40'),
 (49, 'West Josie', '2025-08-26 04:16:40', '2025-08-26 04:16:40'),
-(50, 'Carrollview', '2025-08-26 04:16:40', '2025-08-26 04:16:40');
+(50, 'Carrollview', '2025-08-26 04:16:40', '2025-08-26 04:16:40'),
+(54, 'Sarajevo', '2025-09-18 19:31:26', '2025-09-18 19:31:26'),
+(55, 'Mali Beograd', '2025-09-18 19:33:43', '2025-09-18 19:33:43'),
+(56, 'Bijeljina', '2025-09-18 19:39:17', '2025-09-18 19:39:17'),
+(57, 'Novi Sad', '2025-09-18 19:39:36', '2025-09-18 19:39:36'),
+(58, 'Denver', '2025-09-18 19:52:19', '2025-09-18 19:52:19'),
+(59, 'Ugljevik', '2025-09-18 19:53:42', '2025-09-18 19:53:42'),
+(60, 'Simberi Island', '2025-09-18 19:55:16', '2025-09-18 19:55:16'),
+(61, 'Kragujevac', '2025-09-18 20:03:21', '2025-09-18 20:03:21'),
+(63, 'Doboj', '2025-09-18 22:40:09', '2025-09-18 22:40:09'),
+(64, 'Zenica', '2025-09-18 22:40:27', '2025-09-18 22:40:27'),
+(65, 'Kraljevo', '2025-09-18 22:40:41', '2025-09-18 22:40:41'),
+(66, 'Brodnica', '2025-09-18 22:41:00', '2025-09-18 22:41:00'),
+(67, 'Francisco Morato', '2025-09-18 22:41:08', '2025-09-18 22:41:08'),
+(68, 'Banja Luka', '2025-09-18 22:41:33', '2025-09-18 22:41:33'),
+(69, 'Kozarska Dubica', '2025-09-18 22:44:16', '2025-09-18 22:44:16'),
+(72, 'San Francisco', '2025-09-18 22:50:08', '2025-09-18 22:50:08'),
+(78, 'Loznica', '2025-09-19 04:53:18', '2025-09-19 04:53:18'),
+(79, 'Madrid', '2025-09-19 04:55:11', '2025-09-19 04:55:11'),
+(80, 'Barcelona', '2025-09-19 04:57:37', '2025-09-19 04:57:37'),
+(81, 'Novi Grad', '2025-09-21 07:23:38', '2025-09-21 07:23:38'),
+(82, 'Branjevo', '2025-09-21 07:23:44', '2025-09-21 07:23:44'),
+(83, 'Belgrade', '2025-09-21 07:27:07', '2025-09-21 07:27:07'),
+(84, 'Arad', '2025-09-24 06:41:14', '2025-09-24 06:41:14'),
+(85, 'Tirana', '2025-09-24 06:41:27', '2025-09-24 06:41:27'),
+(86, 'Han Pijesak', '2025-09-26 09:06:57', '2025-09-26 09:06:57');
 
 -- --------------------------------------------------------
 
@@ -146,7 +173,45 @@ CREATE TABLE IF NOT EXISTS `contacts` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `contacts`
+--
+
+INSERT INTO `contacts` (`id`, `email`, `subject`, `message`, `created_at`, `updated_at`) VALUES
+(1, 'bborislavilic@gmail.com', 'ovo je poruka', 'lkjaslgkjalksgjalksjgdsagadgad', '2025-10-01 04:26:31', '2025-10-01 04:26:31'),
+(2, 'admin@admin.com', 'sadasd', 'asdasdasd', '2025-10-01 04:26:35', '2025-10-01 04:26:35'),
+(3, 'admin@example.com', 'sadasd', 'asadsadsasd', '2025-10-01 04:26:39', '2025-10-01 04:26:39'),
+(4, 'boajan@bojan.gmail.com', 'poruka', 'lkasjflkajgfkla', '2025-10-01 04:39:09', '2025-10-01 04:52:26');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `exchange_rates`
+--
+
+DROP TABLE IF EXISTS `exchange_rates`;
+CREATE TABLE IF NOT EXISTS `exchange_rates` (
+  `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT,
+  `currency` varchar(10) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `value` decimal(8,2) NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `exchange_rates`
+--
+
+INSERT INTO `exchange_rates` (`id`, `currency`, `value`, `created_at`, `updated_at`) VALUES
+(1, 'BAM', 59.93, '2025-09-25 11:24:45', '2025-09-26 11:24:45'),
+(3, 'BAM', 59.93, '2025-09-26 11:25:54', '2025-09-26 11:25:54'),
+(4, 'EUR', 117.21, '2025-09-26 11:26:04', '2025-09-26 11:26:04'),
+(5, 'USD', 100.34, '2025-09-26 11:26:11', '2025-09-26 11:26:11'),
+(6, 'EUR', 117.20, '2025-09-30 16:53:51', '2025-09-30 16:53:51'),
+(7, 'BAM', 59.92, '2025-09-30 16:53:55', '2025-09-30 16:53:55');
 
 -- --------------------------------------------------------
 
@@ -185,7 +250,7 @@ CREATE TABLE IF NOT EXISTS `forecasts` (
   `probabbility` smallint UNSIGNED DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `forecasts_city_id_date_unique` (`city_id`,`date`)
-) ENGINE=InnoDB AUTO_INCREMENT=1503 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=1629 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `forecasts`
@@ -1694,7 +1759,119 @@ INSERT INTO `forecasts` (`id`, `city_id`, `temperature`, `date`, `created_at`, `
 (1498, 50, -38, '2025-10-13', '2025-09-16 10:18:34', '2025-09-16 10:18:34', 'sunny', NULL),
 (1499, 50, -34, '2025-10-14', '2025-09-16 10:18:34', '2025-09-16 10:18:34', 'sunny', NULL),
 (1500, 50, -29, '2025-10-15', '2025-09-16 10:18:34', '2025-09-16 10:18:34', 'snowy', 17),
-(1501, 1, 33, '2025-11-01', '2025-09-16 16:31:36', '2025-09-16 16:31:36', 'sunny', 5);
+(1501, 1, 33, '2025-11-01', '2025-09-16 16:31:36', '2025-09-16 16:31:36', 'sunny', 5),
+(1503, 54, 10, '2025-09-18', '2025-09-18 19:31:26', '2025-09-18 19:31:26', 'Sunny', 0),
+(1504, 54, 13.6, '2025-09-19', '2025-09-18 19:31:26', '2025-09-18 19:31:26', 'Sunny', 0),
+(1505, 54, 15.5, '2025-09-20', '2025-09-18 19:31:26', '2025-09-18 19:31:26', 'Sunny', 0),
+(1506, 54, 16.8, '2025-09-21', '2025-09-18 19:31:26', '2025-09-18 19:31:26', 'Sunny', 0),
+(1507, 54, 16.5, '2025-09-22', '2025-09-18 19:31:26', '2025-09-18 19:31:26', 'Sunny', 0),
+(1509, 55, 18, '2025-09-18', '2025-09-18 19:33:43', '2025-09-18 19:33:43', 'Sunny', 0),
+(1510, 55, 21.7, '2025-09-19', '2025-09-18 19:33:43', '2025-09-18 19:33:43', 'Sunny', 0),
+(1511, 55, 23.4, '2025-09-20', '2025-09-18 19:33:43', '2025-09-18 19:33:43', 'Sunny', 0),
+(1512, 55, 24.4, '2025-09-21', '2025-09-18 19:33:43', '2025-09-18 19:33:43', 'Sunny', 0),
+(1513, 55, 24.8, '2025-09-22', '2025-09-18 19:33:43', '2025-09-18 19:33:43', 'Sunny', 0),
+(1514, 56, 17.4, '2025-09-18', '2025-09-18 19:39:17', '2025-09-18 19:39:17', 'Sunny', 0),
+(1515, 56, 20.9, '2025-09-19', '2025-09-18 19:39:17', '2025-09-18 19:39:17', 'Sunny', 0),
+(1516, 56, 22.7, '2025-09-20', '2025-09-18 19:39:17', '2025-09-18 19:39:17', 'Sunny', 0),
+(1517, 56, 23.8, '2025-09-21', '2025-09-18 19:39:17', '2025-09-18 19:39:17', 'Sunny', 0),
+(1518, 56, 24.2, '2025-09-22', '2025-09-18 19:39:17', '2025-09-18 19:39:17', 'Sunny', 0),
+(1519, 57, 17.9, '2025-09-18', '2025-09-18 19:39:36', '2025-09-18 19:39:36', 'Partly Cloudy ', 0),
+(1520, 57, 21.6, '2025-09-19', '2025-09-18 19:39:36', '2025-09-18 19:39:36', 'Sunny', 0),
+(1521, 57, 23.6, '2025-09-20', '2025-09-18 19:39:36', '2025-09-18 19:39:36', 'Sunny', 0),
+(1522, 57, 24.7, '2025-09-21', '2025-09-18 19:39:36', '2025-09-18 19:39:36', 'Sunny', 0),
+(1523, 57, 25, '2025-09-22', '2025-09-18 19:39:36', '2025-09-18 19:39:36', 'Sunny', 0),
+(1524, 58, 17.7, '2025-09-18', '2025-09-18 19:52:19', '2025-09-18 19:52:19', 'Sunny', 0),
+(1525, 58, 19.6, '2025-09-19', '2025-09-18 19:52:19', '2025-09-18 19:52:19', 'Partly Cloudy ', 0),
+(1526, 58, 19.4, '2025-09-20', '2025-09-18 19:52:19', '2025-09-18 19:52:19', 'Partly Cloudy ', 0),
+(1527, 58, 20.8, '2025-09-21', '2025-09-18 19:52:19', '2025-09-18 19:52:19', 'Sunny', 0),
+(1528, 58, 19.2, '2025-09-22', '2025-09-18 19:52:19', '2025-09-18 19:52:19', 'Patchy rain nearby', 88),
+(1529, 59, 17.4, '2025-09-18', '2025-09-18 19:53:42', '2025-09-18 19:53:42', 'Sunny', 0),
+(1530, 59, 20.9, '2025-09-19', '2025-09-18 19:53:42', '2025-09-18 19:53:42', 'Sunny', 0),
+(1531, 59, 22.7, '2025-09-20', '2025-09-18 19:53:42', '2025-09-18 19:53:42', 'Sunny', 0),
+(1532, 59, 23.8, '2025-09-21', '2025-09-18 19:53:42', '2025-09-18 19:53:42', 'Sunny', 0),
+(1533, 59, 24.2, '2025-09-22', '2025-09-18 19:53:42', '2025-09-18 19:53:42', 'Sunny', 0),
+(1534, 60, 27.8, '2025-09-19', '2025-09-18 19:55:16', '2025-09-18 19:55:16', 'Heavy rain', 97),
+(1538, 61, 18.2, '2025-09-19', '2025-09-18 20:03:21', '2025-09-18 20:03:21', 'Sunny', 0),
+(1540, 61, 20.4, '2025-09-20', '2025-09-18 20:04:53', '2025-09-18 20:04:53', 'Sunny', NULL),
+(1541, 61, 21.9, '2025-09-21', '2025-09-18 20:04:53', '2025-09-18 20:04:53', 'Sunny', NULL),
+(1542, 61, 22.2, '2025-09-22', '2025-09-18 20:04:53', '2025-09-18 20:04:53', 'Sunny', NULL),
+(1543, 61, 20.1, '2025-09-23', '2025-09-18 20:04:53', '2025-09-18 20:04:53', 'Sunny', NULL),
+(1544, 60, 28.6, '2025-09-20', '2025-09-18 20:05:04', '2025-09-18 20:05:04', 'Patchy rain nearby', NULL),
+(1545, 60, 28.5, '2025-09-21', '2025-09-18 20:05:04', '2025-09-18 20:05:04', 'Patchy rain nearby', NULL),
+(1546, 60, 28.3, '2025-09-22', '2025-09-18 20:05:04', '2025-09-18 20:05:04', 'Sunny', NULL),
+(1547, 60, 28.2, '2025-09-23', '2025-09-18 20:05:04', '2025-09-18 20:05:04', 'Patchy rain nearby', NULL),
+(1551, 63, 20.2, '2025-09-19', '2025-09-18 22:40:09', '2025-09-18 22:40:09', 'Sunny', 0),
+(1552, 64, 15.1, '2025-09-19', '2025-09-18 22:40:27', '2025-09-18 22:40:27', 'Sunny', 0),
+(1553, 65, 17, '2025-09-19', '2025-09-18 22:40:41', '2025-09-18 22:40:41', 'Sunny', 0),
+(1554, 66, 17.4, '2025-09-19', '2025-09-18 22:41:00', '2025-09-18 22:41:00', 'Patchy rain nearby', 82),
+(1555, 67, 19, '2025-09-18', '2025-09-18 22:41:08', '2025-09-18 22:41:08', 'Sunny', 0),
+(1556, 68, 20.8, '2025-09-19', '2025-09-18 22:41:33', '2025-09-18 22:41:33', 'Sunny', 0),
+(1557, 69, 20, '2025-09-19', '2025-09-18 22:44:16', '2025-09-18 22:44:16', 'Sunny', 0),
+(1564, 72, 15.5, '2025-09-18', '2025-09-18 22:50:08', '2025-09-18 22:50:08', 'Patchy rain nearby', 74),
+(1565, 72, 15.7, '2025-09-19', '2025-09-18 22:50:08', '2025-09-18 22:50:08', 'Mist', 0),
+(1566, 72, 14.9, '2025-09-20', '2025-09-18 22:50:08', '2025-09-18 22:50:08', 'Fog', 0),
+(1567, 72, 16.4, '2025-09-21', '2025-09-18 22:50:08', '2025-09-18 22:50:08', 'Cloudy ', 0),
+(1568, 72, 18.5, '2025-09-22', '2025-09-18 22:50:08', '2025-09-18 22:50:08', 'Sunny', 0),
+(1569, 79, 27.4, '2025-09-19', '2025-09-19 04:55:55', '2025-09-19 04:55:55', 'Patchy rain nearby', 87),
+(1570, 79, 26.1, '2025-09-20', '2025-09-19 04:55:55', '2025-09-19 04:55:55', 'Sunny', 0),
+(1571, 79, 22.9, '2025-09-21', '2025-09-19 04:55:55', '2025-09-19 04:55:55', 'Sunny', 0),
+(1572, 79, 17.1, '2025-09-22', '2025-09-19 04:55:55', '2025-09-19 04:55:55', 'Sunny', 0),
+(1573, 79, 16.8, '2025-09-23', '2025-09-19 04:55:55', '2025-09-19 04:55:55', 'Sunny', 0),
+(1574, 80, 24.9, '2025-09-19', '2025-09-19 04:57:37', '2025-09-19 04:57:37', 'Sunny', 0),
+(1575, 80, 24.6, '2025-09-20', '2025-09-19 04:57:37', '2025-09-19 04:57:37', 'Partly Cloudy ', 0),
+(1576, 80, 24.4, '2025-09-21', '2025-09-19 04:57:37', '2025-09-19 04:57:37', 'Moderate rain', 86),
+(1577, 80, 20.6, '2025-09-22', '2025-09-19 04:57:37', '2025-09-19 04:57:37', 'Moderate rain', 88),
+(1578, 80, 19.7, '2025-09-23', '2025-09-19 04:57:37', '2025-09-19 04:57:37', 'Patchy rain nearby', 89),
+(1579, 81, 22.8, '2025-09-21', '2025-09-21 07:23:38', '2025-09-21 07:23:38', 'Sunny', 0),
+(1580, 81, 21.5, '2025-09-22', '2025-09-21 07:23:38', '2025-09-21 07:23:38', 'Sunny', 0),
+(1581, 81, 21.3, '2025-09-23', '2025-09-21 07:23:38', '2025-09-21 07:23:38', 'Sunny', 0),
+(1582, 81, 22, '2025-09-24', '2025-09-21 07:23:38', '2025-09-21 07:23:38', 'Sunny', 0),
+(1583, 81, 15.2, '2025-09-25', '2025-09-21 07:23:38', '2025-09-21 07:23:38', 'Partly Cloudy ', 0),
+(1584, 82, 22.8, '2025-09-21', '2025-09-21 07:23:44', '2025-09-21 07:23:44', 'Sunny', 0),
+(1585, 82, 22.7, '2025-09-22', '2025-09-21 07:23:44', '2025-09-21 07:23:44', 'Sunny', 0),
+(1586, 82, 21.7, '2025-09-23', '2025-09-21 07:23:44', '2025-09-21 07:23:44', 'Sunny', 0),
+(1587, 82, 19.2, '2025-09-24', '2025-09-21 07:23:44', '2025-09-21 07:23:44', 'Partly Cloudy ', 0),
+(1588, 82, 16.9, '2025-09-25', '2025-09-21 07:23:44', '2025-09-21 07:23:44', 'Patchy rain nearby', 89),
+(1589, 78, 21.3, '2025-09-21', '2025-09-21 07:26:45', '2025-09-21 07:26:45', 'Sunny', 0),
+(1590, 78, 19.8, '2025-09-22', '2025-09-21 07:26:45', '2025-09-21 07:26:45', 'Sunny', 0),
+(1591, 78, 19.9, '2025-09-23', '2025-09-21 07:26:45', '2025-09-21 07:26:45', 'Sunny', 0),
+(1592, 78, 20.2, '2025-09-24', '2025-09-21 07:26:45', '2025-09-21 07:26:45', 'Sunny', 0),
+(1593, 78, 14.3, '2025-09-25', '2025-09-21 07:26:45', '2025-09-21 07:26:45', 'Partly Cloudy ', 0),
+(1594, 83, 24.2, '2025-09-21', '2025-09-21 07:27:07', '2025-09-21 07:27:07', 'Sunny', 0),
+(1595, 83, 24.5, '2025-09-22', '2025-09-21 07:27:07', '2025-09-21 07:27:07', 'Sunny', 0),
+(1596, 83, 24.1, '2025-09-23', '2025-09-21 07:27:07', '2025-09-21 07:27:07', 'Sunny', 0),
+(1597, 83, 21.2, '2025-09-24', '2025-09-21 07:27:07', '2025-09-21 07:27:07', 'Partly Cloudy ', 0),
+(1598, 83, 18.8, '2025-09-25', '2025-09-21 07:27:07', '2025-09-21 07:27:07', 'Partly Cloudy ', 0),
+(1599, 55, 22.7, '2025-09-23', '2025-09-23 06:20:52', '2025-09-23 06:20:52', 'Sunny', 0),
+(1600, 55, 19.1, '2025-09-24', '2025-09-23 06:20:52', '2025-09-23 06:20:52', 'Patchy rain nearby', 85),
+(1601, 55, 14.5, '2025-09-25', '2025-09-23 06:20:52', '2025-09-23 06:20:52', 'Partly Cloudy ', 0),
+(1602, 55, 16, '2025-09-26', '2025-09-23 06:20:52', '2025-09-23 06:20:52', 'Partly Cloudy ', 0),
+(1603, 55, 16.8, '2025-09-27', '2025-09-23 06:20:52', '2025-09-23 06:20:52', 'Sunny', 0),
+(1604, 56, 22.6, '2025-09-23', '2025-09-23 06:22:53', '2025-09-23 06:22:53', 'Sunny', 0),
+(1605, 56, 18.7, '2025-09-24', '2025-09-23 06:22:53', '2025-09-23 06:22:53', 'Patchy rain nearby', 87),
+(1606, 56, 17.2, '2025-09-25', '2025-09-23 06:22:53', '2025-09-23 06:22:53', 'Partly Cloudy ', 0),
+(1607, 56, 15.7, '2025-09-26', '2025-09-23 06:22:53', '2025-09-23 06:22:53', 'Partly Cloudy ', 0),
+(1608, 56, 15.9, '2025-09-27', '2025-09-23 06:22:53', '2025-09-23 06:22:53', 'Partly Cloudy ', 0),
+(1609, 84, 21.9, '2025-09-24', '2025-09-24 06:41:14', '2025-09-24 06:41:14', 'Partly Cloudy ', 0),
+(1610, 84, 17, '2025-09-25', '2025-09-24 06:41:14', '2025-09-24 06:41:14', 'Patchy rain nearby', 87),
+(1611, 84, 15.5, '2025-09-26', '2025-09-24 06:41:14', '2025-09-24 06:41:14', 'Partly Cloudy ', 0),
+(1612, 84, 15, '2025-09-27', '2025-09-24 06:41:14', '2025-09-24 06:41:14', 'Partly Cloudy ', 0),
+(1613, 84, 15.3, '2025-09-28', '2025-09-24 06:41:14', '2025-09-24 06:41:14', 'Partly Cloudy ', 0),
+(1614, 85, 21.3, '2025-09-24', '2025-09-24 06:41:27', '2025-09-24 06:41:27', 'Sunny', 0),
+(1615, 85, 20.7, '2025-09-25', '2025-09-24 06:41:27', '2025-09-24 06:41:27', 'Patchy rain nearby', 78),
+(1616, 85, 20, '2025-09-26', '2025-09-24 06:41:27', '2025-09-24 06:41:27', 'Patchy rain nearby', 89),
+(1617, 85, 19.4, '2025-09-27', '2025-09-24 06:41:27', '2025-09-24 06:41:27', 'Moderate rain', 89),
+(1618, 85, 15.6, '2025-09-28', '2025-09-24 06:41:27', '2025-09-24 06:41:27', 'Heavy rain', 77),
+(1619, 83, 16.8, '2025-09-26', '2025-09-26 08:54:04', '2025-09-26 08:54:04', 'Patchy rain nearby', 87),
+(1620, 83, 15.6, '2025-09-27', '2025-09-26 08:54:04', '2025-09-26 08:54:04', 'Patchy rain nearby', 88),
+(1621, 83, 16.4, '2025-09-28', '2025-09-26 08:54:04', '2025-09-26 08:54:04', 'Partly Cloudy ', 0),
+(1622, 83, 15.3, '2025-09-29', '2025-09-26 08:54:04', '2025-09-26 08:54:04', 'Partly Cloudy ', 0),
+(1623, 83, 10.9, '2025-09-30', '2025-09-26 08:54:04', '2025-09-26 08:54:04', 'Patchy rain nearby', 87),
+(1624, 86, 13.3, '2025-09-26', '2025-09-26 09:06:57', '2025-09-26 09:06:57', 'Patchy rain nearby', 88),
+(1625, 86, 12.6, '2025-09-27', '2025-09-26 09:06:57', '2025-09-26 09:06:57', 'Patchy rain nearby', 82),
+(1626, 86, 9.7, '2025-09-28', '2025-09-26 09:06:57', '2025-09-26 09:06:57', 'Patchy rain nearby', 88),
+(1627, 86, 10.4, '2025-09-29', '2025-09-26 09:06:57', '2025-09-26 09:06:57', 'Patchy rain nearby', 84),
+(1628, 86, 7.1, '2025-09-30', '2025-09-26 09:06:57', '2025-09-26 09:06:57', 'Patchy rain nearby', 80);
 
 -- --------------------------------------------------------
 
@@ -1709,7 +1886,18 @@ CREATE TABLE IF NOT EXISTS `items` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `items`
+--
+
+INSERT INTO `items` (`id`, `item`, `created_at`, `updated_at`) VALUES
+(1, 'bananaa11', '2025-09-30 18:40:25', '2025-10-01 05:00:51'),
+(2, 'banana', '2025-09-30 18:40:29', '2025-09-30 18:40:29'),
+(3, 'jabuka', '2025-09-30 18:40:34', '2025-09-30 18:40:34'),
+(4, '123', '2025-10-01 05:08:48', '2025-10-01 05:08:48'),
+(5, 'tesla', '2025-10-01 05:09:26', '2025-10-01 05:09:26');
 
 -- --------------------------------------------------------
 
@@ -1763,7 +1951,7 @@ CREATE TABLE IF NOT EXISTS `migrations` (
   `migration` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `batch` int NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `migrations`
@@ -1785,7 +1973,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (13, '2025_08_17_195347_create_forecasts_table', 1),
 (14, '2025_08_17_211940_create_weather_table', 1),
 (15, '2025_08_26_053942_add_weather_type_and_probabbility_to_forecasts', 1),
-(16, '2025_09_16_184259_create_user_cities', 2);
+(16, '2025_09_16_184259_create_user_cities', 2),
+(24, '2025_09_26_115657_create_exchange_rates_table', 3);
 
 -- --------------------------------------------------------
 
@@ -1804,7 +1993,14 @@ CREATE TABLE IF NOT EXISTS `ocena` (
   `user_id` bigint UNSIGNED DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `ocena_user_id_foreign` (`user_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `ocena`
+--
+
+INSERT INTO `ocena` (`id`, `predmet`, `ocena`, `profesor`, `created_at`, `updated_at`, `user_id`) VALUES
+(1, 'srpski', 5, 'marko', '2025-10-01 07:45:00', '2025-10-01 07:44:53', 1);
 
 -- --------------------------------------------------------
 
@@ -1837,7 +2033,17 @@ CREATE TABLE IF NOT EXISTS `products` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `products`
+--
+
+INSERT INTO `products` (`id`, `name`, `description`, `amount`, `price`, `image`, `created_at`, `updated_at`) VALUES
+(1, 'tabla', 'al;kjsfslakjfjlaksf', 32, 123, 'tabla.img', '2025-09-30 19:08:28', '2025-09-30 19:08:30'),
+(4, 'ananas', '123sacdsa', 213, 213, '232sad', '2025-09-30 17:26:06', '2025-09-30 17:37:28'),
+(5, '234e', 'asfc', 123, 22, 'omsda.jpg', '2025-09-30 18:26:23', '2025-09-30 18:26:23'),
+(6, '234esadasdasddsa', 'asfc', 123, 22, 'omsda.jpg', '2025-09-30 18:26:47', '2025-09-30 18:26:47');
 
 -- --------------------------------------------------------
 
@@ -1863,12 +2069,7 @@ CREATE TABLE IF NOT EXISTS `sessions` (
 --
 
 INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, `last_activity`) VALUES
-('drhEHGitWEJYH0mjk9BteikwlUQSjwn8FFybt98E', NULL, '127.0.0.1', 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Mobile Safari/537.36', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoieHltdXBIWlVEUHU3SjJGWm9PbnFENUFiaVkxSllLZ29WeHlVY0oyciI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MjE6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMCI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fX0=', 1758093827),
-('e2SEi69mWYqrGthHYWPgpbd2bAloFszBEXcE3T3y', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiNGtXNnRiQkxXYVY1NVpQRmxTc251YzE5SFJlb3loRHVpNUVUVHNBVSI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MjE6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMCI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fX0=', 1758086998),
-('iKtVr80HMIQViNuP3j7fUjkxmrJM84ozIHof3u7i', 53, '127.0.0.1', 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Mobile Safari/537.36', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoiallJUGpnenVhRzBPbkpGOExRTVg1ZFNMV2VXTUt5NFc5M2xEeXZ0MSI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MjE6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMCI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fXM6NTA6ImxvZ2luX3dlYl81OWJhMzZhZGRjMmIyZjk0MDE1ODBmMDE0YzdmNThlYTRlMzA5ODlkIjtpOjUzO30=', 1758090675),
-('o7itbEVqrxzP1rUFOOGuJyhrtQh30VoUySUhROKX', 54, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoiVlJKMzFPdm5pQ2hWZXNhaTk4UEpDTkFpOEhQa1ptbjY0S3g1YVdZbyI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6NDQ6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9mb3JlY2FzdHMvc2VhcmNoP2NpdHk9Ijt9czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo1MDoibG9naW5fd2ViXzU5YmEzNmFkZGMyYjJmOTQwMTU4MGYwMTRjN2Y1OGVhNGUzMDk4OWQiO2k6NTQ7fQ==', 1758087620),
-('P0jNpP1VlInlJYhl1pldRhicMksDyq4IdHsqJz6R', 53, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoiUGNOdkhBVXUweG9GUnVFeDlaNDZKZlJFT2J3dUh1RElmZFV3dTg2dCI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MjE6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMCI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fXM6NTA6ImxvZ2luX3dlYl81OWJhMzZhZGRjMmIyZjk0MDE1ODBmMDE0YzdmNThlYTRlMzA5ODlkIjtpOjUzO30=', 1758093807),
-('rMgLSwHuKf5cnejh6FnGOTMeE8o2iSssC3B9bftC', 53, '127.0.0.1', 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Mobile Safari/537.36', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoiZ1VHeEpJVHZtRm5iZDNqMWlJVVNPSDdvT01uZktJS0xXbGxXeGVQQiI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6NDQ6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9mb3JlY2FzdHMvc2VhcmNoP2NpdHk9Ijt9czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo1MDoibG9naW5fd2ViXzU5YmEzNmFkZGMyYjJmOTQwMTU4MGYwMTRjN2Y1OGVhNGUzMDk4OWQiO2k6NTM7fQ==', 1758087516);
+('qE7VOZqASTIaVmtQObSxPZtsyDcEA0lIsKnhrtAv', 53, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoiWUVGVkcxYWE3SlRudTQ5Z09sZXg1c05Va1JSOEJrVUUwWW9ST0FyQSI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MjE6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMCI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fXM6NTA6ImxvZ2luX3dlYl81OWJhMzZhZGRjMmIyZjk0MDE1ODBmMDE0YzdmNThlYTRlMzA5ODlkIjtpOjUzO30=', 1759304714);
 
 -- --------------------------------------------------------
 
@@ -1886,7 +2087,17 @@ CREATE TABLE IF NOT EXISTS `students` (
   `updated_at` timestamp NULL DEFAULT NULL,
   `year` int NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `students`
+--
+
+INSERT INTO `students` (`id`, `name`, `surname`, `noIndex`, `created_at`, `updated_at`, `year`) VALUES
+(1, 'Borislav', 'Ilic', '2021210336', '2025-10-01 05:13:05', '2025-10-01 05:13:05', 2021),
+(2, 'Njegoslav', 'Boskovic', '2021222123', '2025-10-01 05:13:17', '2025-10-01 05:13:17', 2021),
+(3, 'Vladan', 'Milovanovic', '2024213456', '2025-10-01 05:13:28', '2025-10-01 05:13:28', 2024),
+(4, 'asdadsads', 'dasdsaasd', '321321', '2025-10-01 05:37:40', '2025-10-01 05:37:40', 1231);
 
 -- --------------------------------------------------------
 
@@ -1985,7 +2196,7 @@ CREATE TABLE IF NOT EXISTS `user_cities` (
   PRIMARY KEY (`id`),
   KEY `user_cities_city_id_foreign` (`city_id`),
   KEY `user_cities_user_id_foreign` (`user_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `user_cities`
@@ -2000,7 +2211,9 @@ INSERT INTO `user_cities` (`id`, `city_id`, `user_id`, `created_at`, `updated_at
 (16, 7, 53, '2025-09-17 04:44:00', '2025-09-17 04:44:00'),
 (21, 16, 53, '2025-09-17 04:44:05', '2025-09-17 04:44:05'),
 (22, 15, 53, '2025-09-17 04:44:06', '2025-09-17 04:44:06'),
-(23, 13, 53, '2025-09-17 04:44:07', '2025-09-17 04:44:07');
+(23, 13, 53, '2025-09-17 04:44:07', '2025-09-17 04:44:07'),
+(24, 78, 53, '2025-09-21 07:26:50', '2025-09-21 07:26:50'),
+(25, 83, 53, '2025-09-21 07:27:08', '2025-09-21 07:27:08');
 
 -- --------------------------------------------------------
 
