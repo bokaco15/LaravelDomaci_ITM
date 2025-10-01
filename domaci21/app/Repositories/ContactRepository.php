@@ -28,6 +28,14 @@ class ContactRepository
         return $this->contactModel->where('id',$id)->first();
     }
 
+    public function updateContact($request, $contact)
+    {
+        $contact['email']=$request->get('email');
+        $contact['subject']=$request->get('subject');
+        $contact['message']=$request->get('message');
+        $contact->save();
+    }
+
     /*
     public function test()
     {

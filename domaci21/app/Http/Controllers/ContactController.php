@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\AddContactRequest;
+use App\Http\Requests\UpdateContactRequest;
 use App\Models\Contact;
 use App\Repositories\ContactRepository;
 use Illuminate\Http\Request;
@@ -45,29 +46,15 @@ class ContactController extends Controller
 
     public function edit($id)
     {
-        //$contact = Contact::where(['id'=>$id])->first();
         $contact = Contact::findOrFail($id);
-//        dd($contact);
         return view('editContact', compact('contact'));
     }
 
-    public function saveUpdate(Request $request, $id)
+    public function saveUpdate(UpdateContactRequest $request, $id)
     {
-//        $contact = Contact::where(['id'=>$id])->first();
-        $contact=Contact::findOrFail($id);
-        $request->validate([
-            'email'=>'required|string|max:64',
-            'subject'=>'string',
-            'message'=> 'required|string'
-        ]);
-
-        $contact['email']=$request->get('email');
-        $contact['subject']=$request->get('subject');
-        $contact['message']=$request->get('message');
-        $contact->save();
-
+        $contact=$this->contactRepo->getContactById($id);
+        $this->contactRepo->updateContact($request, $contact);
         return redirect()->route('allcontacts')->with('uspeh', "Uspesno ste azurirali kontakta {$contact['email']}");
-
     }
 
 }
