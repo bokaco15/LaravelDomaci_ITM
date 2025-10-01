@@ -15,7 +15,6 @@ class ContactController extends Controller
     public function __construct()
     {
         $this->contactRepo = new ContactRepository();
-//        $this->contactRepo->test();
     }
     public function addContact(AddContactRequest $request)
     {
