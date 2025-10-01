@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\AddContactRequest;
 use App\Models\Contact;
 use App\Repositories\ContactRepository;
 use Illuminate\Http\Request;
@@ -15,16 +16,9 @@ class ContactController extends Controller
         $this->contactRepo = new ContactRepository();
 //        $this->contactRepo->test();
     }
-    public function addContact(Request $request)
+    public function addContact(AddContactRequest $request)
     {
-        $validation=$request->validate([
-           'email'=>'required|string|max:64',
-           'subject'=>'string',
-            'message'=> 'required|string'
-        ]);
-//        dd($request->all());
-        Contact::create($validation);
-
+        $this->contactRepo->addContact($request);
         return redirect('/admin/add-contact')->with('uspeh', 'Uspeno ste dodali kontakta');
     }
 
@@ -37,11 +31,6 @@ class ContactController extends Controller
 
     public function deleteContact($id)
     {
-        /*
-        $url = route('contact.delete', ['id'=>$id]);
-        dd($url);
-        */
-//      dd($id);
         $contact = Contact::where(['id'=>$id])->first();
 //      dd($contact);
         if($contact != null)

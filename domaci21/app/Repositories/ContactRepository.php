@@ -14,9 +14,21 @@ class ContactRepository
         $this->contactModel = new Contact();
     }
 
+    public function addContact($request)
+    {
+        $this->contactModel->create([
+            'email'=>$request->get('email'),
+            'subject'=>$request->get('subject'),
+            'message'=>$request->get('message'),
+        ]);
+    }
+
+
+    /*
     public function test()
     {
         dd("123123");
     }
+    */
 
 }
