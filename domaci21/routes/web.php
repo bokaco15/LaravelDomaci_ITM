@@ -122,17 +122,7 @@ Route::get('/item/{item}/edit', [itemsController::class, 'editItem'])->name('edi
 Route::post('/item/{item}/update', [itemsController::class, 'updateItem'])->name('updateItem');
 
 Route::view('/add-items', 'addItem')->name('addItems');
-Route::post('/add-item', function (Request $request) {
-    $request->validate([
-        'item'=>'required|string'
-    ]);
-
-    items::create([
-        'item'=>$request->get('item')
-    ]);
-
-    redirect()->route('allItems');
-});
+Route::post('/add-item', [itemsController::class, 'addItem']);
 
 
 require __DIR__.'/auth.php';
