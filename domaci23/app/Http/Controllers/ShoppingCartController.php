@@ -11,7 +11,7 @@ class ShoppingCartController extends Controller
 {
     public function index()
     {
-        if(!Session::has('amount')) {
+        if(!Session::has('product')) {
             return redirect()->back();
         }
         return view('cart', [
